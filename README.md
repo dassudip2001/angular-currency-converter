@@ -44,27 +44,27 @@ docker-compose up
 
 # For ADD nginx And Dockerfile
 
-FROM node:13-alpine
-WORKDIR /app
-COPY package.json ./
-RUN npm install
-COPY . .
-EXPOSE 4200
-CMD npm run start
+- FROM node:13-alpine
+- WORKDIR /app
+- COPY package.json ./
+- RUN npm install
+- COPY . .
+- EXPOSE 4200
+- CMD npm run start
 
 # from build
 
-FROM node:alpine as build-stage
+- FROM node:alpine as build-stage
 
-WORKDIR /app
-COPY packeage.json ./
-RUN npm install
-COPY . .
-RUN npm run build
+- WORKDIR /app
+- COPY packeage.json ./
+- RUN npm install
+- COPY . .
+- RUN npm run build
 
 # production
 
-FROM nginx:alpine as prod-stage
-COPY --from=build-step /app/dist/demo /usr/share/nginx/html
-EXPOSE 90
-CMD [ "nginx","-g","demon off;" ]
+- FROM nginx:alpine as prod-stage
+- COPY --from=build-step /app/dist/demo /usr/share/nginx/html
+- EXPOSE 90
+- CMD [ "nginx","-g","demon off;" ]
