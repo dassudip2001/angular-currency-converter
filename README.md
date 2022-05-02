@@ -34,13 +34,13 @@ docker build -t appname .
 
 docker-compose up
 #docker File For Testing
-FROM node:alpine
-WORKDIR /app
-COPY package.json ./
-RUN npm install
-COPY . .
-EXPOSE 4200
-CMD npm run start
+- FROM node:alpine
+- WORKDIR /app
+- COPY package.json ./
+- RUN npm install
+- COPY . .
+- EXPOSE 4200
+- CMD npm run start
 
 # For ADD nginx And Dockerfile
 
