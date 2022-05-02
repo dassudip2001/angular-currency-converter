@@ -25,3 +25,53 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## How To Build Docker Image
+
+docker build -t appname .
+
+## How To Run Docker Compose
+
+docker-compose up
+#docker File For Testing
+FROM node:alpine
+WORKDIR /app
+COPY package.json ./
+RUN npm install
+COPY . .
+EXPOSE 4200
+CMD npm run start
+
+# For ADD nginx And Dockerfile
+
+FROM node:13-alpine
+WORKDIR /app
+COPY package.json ./
+RUN npm install
+COPY . .
+EXPOSE 4200
+CMD npm run start
+
+# # from build
+
+# FROM node:alpine as build-stage
+
+# WORKDIR /app
+
+# COPY packeage.json ./
+
+# RUN npm install
+
+# COPY . .
+
+# RUN npm run build
+
+# # production
+
+# FROM nginx:alpine as prod-stage
+
+# COPY --from=build-step /app/dist/demo /usr/share/nginx/html
+
+# EXPOSE 90
+
+# CMD [ "nginx","-g","demon off;" ]
