@@ -52,26 +52,19 @@ COPY . .
 EXPOSE 4200
 CMD npm run start
 
-# # from build
+# from build
 
-# FROM node:alpine as build-stage
+FROM node:alpine as build-stage
 
-# WORKDIR /app
+WORKDIR /app
+COPY packeage.json ./
+RUN npm install
+COPY . .
+RUN npm run build
 
-# COPY packeage.json ./
+# production
 
-# RUN npm install
-
-# COPY . .
-
-# RUN npm run build
-
-# # production
-
-# FROM nginx:alpine as prod-stage
-
-# COPY --from=build-step /app/dist/demo /usr/share/nginx/html
-
-# EXPOSE 90
-
-# CMD [ "nginx","-g","demon off;" ]
+FROM nginx:alpine as prod-stage
+COPY --from=build-step /app/dist/demo /usr/share/nginx/html
+EXPOSE 90
+CMD [ "nginx","-g","demon off;" ]
