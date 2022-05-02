@@ -2,14 +2,16 @@
   <h1 class="text">{{ sudip }}</h1>
   <br />
   <form class="demo-form">
-    <label for="fname">USD</label>
-    <input
-      class="inshart"
-      type="number"
-      #inr
-      name="usd"
-      placeholder="Enter the USD value.."
-    />
+    <div class="form-group">
+      <label for="exampleInputEmail1">USD</label>
+      <input
+        type="number"
+        class="form-control"
+        #inr
+        aria-describedby="emailHelp"
+        placeholder="Enter USD"
+      />
+    </div>
   </form>
   <br />
   <button
@@ -20,5 +22,7 @@
     Convert
   </button>
   <br />
-  <h2>{{ currentval }}</h2>
+  <label for=""
+    ><h2>{{ currentval }}</h2></label
+  >
 </div>

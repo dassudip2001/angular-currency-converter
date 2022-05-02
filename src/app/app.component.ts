@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Convater ';
-  sudip='Entre Yeeweour USD value to convart INR';
+  sudip='Entre Your USD value to convart INR';
  currentval=0; 
 getvalue(val:number){
       this.currentval=val*72;
