@@ -1,23 +1,39 @@
-.btn{
+.btn {
     height: 40px;
     width: 150px;
     border-radius: 5px;
     font-size: 13px;
     justify-content: center;
 }
-.demo-from{
+
+.demo-from {
     /* margin-left: 10rem; */
     margin: auto;
 }
-.inshart{
 
-}
-.text{
+.text {
     text-align: center;
 }
-.header{
+
+.header {
     height: 60px;
     width: 60%;
     margin: auto;
     /* border: 1px dashed; */
+}
+
+.from-contaner {
+    /* border: 2px black solid; */
+    width: 40rem;
+    height: 20rem;
+    margin: auto;
+}
+
+.output-field {
+    height: 40px;
+    width: 40rem;
+    border: 1px solid #d0d6db;
+    padding: 6px;
+    border-radius: 3px;
+    background-color: #dfdfe0e8;
 }

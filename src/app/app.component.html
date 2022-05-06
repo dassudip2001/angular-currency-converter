@@ -1,28 +1,30 @@
 <div class="header">
   <h1 class="text">{{ sudip }}</h1>
   <br />
-  <form class="demo-form">
-    <div class="form-group">
-      <label for="exampleInputEmail1">USD</label>
-      <input
-        type="number"
-        class="form-control"
-        #inr
-        aria-describedby="emailHelp"
-        placeholder="Enter USD"
-      />
-    </div>
-  </form>
-  <br />
-  <button
-    type="submit"
-    class="btn btn-primary"
-    (click)="getvalue(inr.valueAsNumber)"
-  >
-    Convert
-  </button>
-  <br />
-
-  >
-  <h2>{{ currentval }}</h2>
+  <div class="from-contaner">
+    <form class="demo-form">
+      <div class="form-group">
+        <label for="exampleInputEmail1">USD</label>
+        <input
+          type="number"
+          class="form-control"
+          #inr
+          aria-describedby="emailHelp"
+          placeholder="Enter USD"
+          style="margin-bottom: 1rem"
+        />
+        <label for="exampleInputEmail1">INR</label>
+        <div class="output-field">{{ currentval }}</div>
+        <div id="emailHelp" class="form-text">usd to inr get value usd*72</div>
+      </div>
+    </form>
+    <br />
+    <button
+      type="submit"
+      class="btn btn-outline-success"
+      (click)="getvalue(inr.valueAsNumber)"
+    >
+      Convert
+    </button>
+  </div>
 </div>
